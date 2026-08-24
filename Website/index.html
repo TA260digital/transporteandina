@@ -47,7 +47,8 @@
 
     <!-- Master Parallax Background Video Progression -->
     <div id="globalVideoContainer">
-        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 1; z-index: -1;"></canvas>
+        <video id="globalVideo" class="global-video" src="images/video_background.mp4" autoplay muted playsinline preload="auto"></video>
+        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 2s ease; z-index: -1;"></canvas>
         <div id="globalVideoOverlay"></div>
     </div>
 
@@ -59,7 +60,6 @@
             </a>
             <nav class="nav-menu">
                 <a href="index.html" class="nav-item active">Inicio</a>
-                <a href="animada.html" class="nav-item">Versión Animada</a>
                 <a href="soluciones.html" class="nav-item">Soluciones</a>
                 <a href="pilares.html" class="nav-item">Pilares</a>
                 <a href="nosotros.html" class="nav-item">Nosotros</a>
