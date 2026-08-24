@@ -9,25 +9,31 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Sequential highlight animations for the hero title */
+        /* Sequential highlight animations for the hero title in index.html, triggered when visible */
         .anim-word {
             transition: color 0.8s ease, border-bottom-color 0.8s ease;
             display: inline-block;
         }
         .word-ba {
             color: var(--white);
-            animation: turnYellow 0.8s forwards;
-            animation-delay: 0.5s;
         }
         .word-sl {
             color: var(--white);
-            animation: turnYellow 0.8s forwards;
-            animation-delay: 1.3s;
         }
         .word-todos {
             color: var(--white);
             border-bottom: 6px solid transparent;
             padding-bottom: 2px;
+        }
+        .start-animations .word-ba {
+            animation: turnYellow 0.8s forwards;
+            animation-delay: 0.5s;
+        }
+        .start-animations .word-sl {
+            animation: turnYellow 0.8s forwards;
+            animation-delay: 1.3s;
+        }
+        .start-animations .word-todos {
             animation: underlineYellow 0.8s forwards;
             animation-delay: 2.1s;
         }
@@ -45,20 +51,24 @@
 </head>
 <body>
 
+    
+
     <!-- Master Parallax Background Video Progression -->
     <div id="globalVideoContainer">
-        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 1; z-index: -1;"></canvas>
+        <video id="globalVideo" class="global-video" src="images/video_background.mp4" autoplay muted playsinline preload="auto"></video>
+        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 2s ease; z-index: -1;"></canvas>
         <div id="globalVideoOverlay"></div>
     </div>
 
     <!-- Header Navbar (No admin button here, pages are linked directly) -->
     <header class="navbar">
         <div class="navbar-container">
-            <a href="index-2.html" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <img src="images/logo.svg" alt="Transporte Andina" class="logo">
             </a>
             <nav class="nav-menu">
-                <a href="index-2.html" class="nav-item active">Inicio</a>
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="animada.html" class="nav-item active">Versión Animada</a>
                 <a href="soluciones.html" class="nav-item">Soluciones</a>
                 <a href="pilares.html" class="nav-item">Pilares</a>
                 <a href="nosotros.html" class="nav-item">Nosotros</a>
@@ -73,7 +83,7 @@
     <!-- Home Banner (Progression of parallax over entire scroll height) -->
     <main class="home-page">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content reveal" id="homeHeroContent" style="opacity: 0; transition: opacity 1.5s ease;">
                 <div class="hero-tag-container">
                     <span class="hero-tag"><span class="brand-highlight">TRANSPORTE ANDINA</span></span>
                 </div>
@@ -82,6 +92,15 @@
                 <div class="hero-actions">
                     <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="btn btn-primary">Cotizá tu envío <i class="fa-brands fa-whatsapp"></i></a>
                     <a href="contacto.html" class="btn btn-outline">Contáctanos <i class="fa-solid fa-envelope"></i></a>
+                </div>
+                
+                <!-- Tracking Form -->
+                <div class="hero-tracking-container">
+                    <h3 class="hero-tracking-title">Consulta el estado de tu envío</h3>
+                    <form class="hero-tracking-form" id="heroTrackingForm">
+                        <input type="text" placeholder="Ingresá tu código de seguimiento..." class="hero-tracking-input" id="heroTrackingInput" required>
+                        <button type="submit" class="hero-tracking-btn">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -94,7 +113,7 @@
                 <div class="graphic-chevrons solid top-left"></div>
                 <span class="section-tag">NUESTRO CAMINO</span>
                 <h2 class="section-title">Qué Hacemos en Transporte Andina</h2>
-                <p class="nosotros-p" style="margin-bottom: 25px;">Nos dedicamos al transporte y logística de mercaderías and bienes, conectando de manera segura y eficiente cada rincón del país.</p>
+                <p class="nosotros-p" style="margin-bottom: 25px;">Nos dedicamos al transporte y logística de mercaderías y bienes, conectando de manera segura y eficiente cada rincón del país.</p>
                 
                 <div class="accordion-wrapper">
                     <!-- Panel 1 -->
@@ -191,69 +210,69 @@
                 <div class="carousel-container" style="margin-left: -60px; margin-right: -60px; width: calc(100% + 120px);">
                     <div class="carousel-track" style="padding-left: 60px; padding-right: 60px;">
                         <!-- Post 1 (Video) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <video class="carousel-media" src="images/post1.mp4" autoplay loop muted playsinline poster="images/post1.jpg"></video>
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 2 (Video) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <video class="carousel-media" src="images/post2.mp4" autoplay loop muted playsinline poster="images/post2.jpg"></video>
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 3 (Video) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <video class="carousel-media" src="images/post3.mp4" autoplay loop muted playsinline poster="images/post3.jpg"></video>
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 4 (Video) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <video class="carousel-media" src="images/post4.mp4" autoplay loop muted playsinline poster="images/post4.jpg"></video>
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 5 (Image) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <img class="carousel-media" src="images/post5.jpg" alt="Instagram Post">
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 6 (Image) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <img class="carousel-media" src="images/post6.jpg" alt="Instagram Post">
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 7 (Image) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <img class="carousel-media" src="images/post7.jpg" alt="Instagram Post">
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Post 8 (Image) -->
-                        <div class="carousel-item">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="carousel-item">
                             <img class="carousel-media" src="images/post8.jpg" alt="Instagram Post">
                             <div class="carousel-overlay">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Ver Post</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -299,7 +318,7 @@
                     <h3>Depósitos</h3>
                     <ul>
                         <li><i class="fa-solid fa-location-dot"></i> <strong>San Luis:</strong> Av. Santos Ortiz y Sto. Cabral 320 Sur</li>
-                        <li><i class="fa-solid fa-location-dot"></i> <strong>Buenos Aires:</strong> Av. Ferré 2520, Villa Soldati, CABA</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>Buenos Aires:</strong> Ferré 2520, Villa Soldati, CABA</li>
                         <li><i class="fa-solid fa-location-dot"></i> <strong>Villa Mercedes:</strong> Av. 25 de Mayo 2470</li>
                     </ul>
                 </div>
