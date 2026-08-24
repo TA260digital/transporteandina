@@ -1001,7 +1001,7 @@ h2.section-title.text-white {
     position: fixed;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%) translateY(120%);
+    transform: translateX(-50%) translateY(150%);
     width: 90%;
     max-width: 900px;
     background-color: rgba(26, 45, 100, 0.95);
@@ -1018,7 +1018,7 @@ h2.section-title.text-white {
 }
 
 .floating-quick-bar.visible {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-20px);
 }
 
 .quick-bar-container {
@@ -1146,17 +1146,18 @@ h2.section-title.text-white {
 .social-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--white);
     text-decoration: none;
-    padding: 8px 14px;
+    padding: 10px 0;
     border-radius: var(--border-radius-sm);
     font-family: 'BuiltTitling', sans-serif;
     font-size: 13px;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    width: fit-content;
+    width: 120px;
     white-space: nowrap;
 }
 

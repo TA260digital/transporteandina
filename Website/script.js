@@ -234,7 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const triggerFade = () => {
                     if (videoFaded) return;
                     videoFaded = true;
-                    videoElement.style.opacity = '0';
+                    if (videoElement) {
+                        videoElement.style.opacity = '0';
+                    }
                     canvasElement.style.opacity = '1';
                     
                     const homeHero = document.getElementById("homeHeroContent");
@@ -246,12 +248,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     initParticles();
                     animateParticles();
                 };
-                videoElement.addEventListener("ended", triggerFade);
-                videoElement.addEventListener("timeupdate", () => {
-                    if (videoElement.duration && videoElement.currentTime >= videoElement.duration - 1.5) {
-                        triggerFade();
-                    }
-                });
+                if (videoElement) {
+                    videoElement.addEventListener("ended", triggerFade);
+                    videoElement.addEventListener("timeupdate", () => {
+                        if (videoElement.duration && videoElement.currentTime >= videoElement.duration - 1.5) {
+                            triggerFade();
+                        }
+                    });
+                }
                 window.addEventListener("scroll", () => {
                     if (window.pageYOffset > 15) {
                         triggerFade();
@@ -261,14 +265,19 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         if (isHomepage) {
-            globalVideo.autoplay = true;
-            globalVideo.loop = false;
-            globalVideo.muted = true;
-            globalVideo.play().catch(() => {
+            if (globalVideo) {
+                globalVideo.autoplay = true;
+                globalVideo.loop = false;
                 globalVideo.muted = true;
-                globalVideo.play();
-            });
-            setupParticleSystem(canvas, globalVideo, false);
+                globalVideo.play().catch(() => {
+                    globalVideo.muted = true;
+                    globalVideo.play();
+                });
+                setupParticleSystem(canvas, globalVideo, false);
+            } else {
+                // If it is the static index.html (no video), run particles immediately
+                setupParticleSystem(canvas, null, true);
+            }
         } else {
             // Default subpage video looping & parallax scroll
             if (globalVideo) {
