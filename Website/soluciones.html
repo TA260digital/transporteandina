@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Soluciones — Transporte Andina</title>
+    <!-- Leaflet MAP CSS and JS CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    
+
+    <!-- Master Parallax Background Video Progression -->
+    <div id="globalVideoContainer">
+        <video id="globalVideo" playsinline muted loop autoplay src="https://assets.mixkit.co/videos/preview/mixkit-cargo-truck-driving-on-the-highway-40436-large.mp4" class="global-video"></video>
+        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 1; z-index: -1;"></canvas>
+        <div id="globalVideoOverlay"></div>
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.svg" alt="Transporte Andina" class="logo">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="soluciones.html" class="nav-item active">Soluciones</a>
+                <a href="pilares.html" class="nav-item">Pilares</a>
+                <a href="nosotros.html" class="nav-item">Nosotros</a>
+                <a href="contacto.html" class="nav-item">Contacto</a>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Soluciones Content -->
+    <main class="home-page">
+        <div class="container">
+            <div class="glass-panel reveal" style="margin-bottom: 50px;">
+                <div class="graphic-chevrons solid top-left"></div>
+                <span class="section-tag">QUÉ HACEMOS</span>
+                <h2 class="section-title">Nuestros servicios</h2>
+                
+                <div class="cards-grid">
+                    <!-- Servicio 1 -->
+                    <div class="service-card carga-general tracking-3d">
+                        <div class="card-glow"></div>
+                        <div class="service-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="service-svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Transporte de Carga General</h3>
+                        <p class="service-desc">Cobertura completa para el traslado seguro de mercaderías generales con unidades equipadas para cada requerimiento.</p>
+                        <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="service-card logistica tracking-3d">
+                        <div class="card-glow"></div>
+                        <div class="service-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="service-svg">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Logística y Coordinación</h3>
+                        <p class="service-desc">Gestión integral de la cadena de suministro, optimizando tiempos de tránsito y garantizando rutas de entrega eficientes.</p>
+                        <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="service-card industrial tracking-3d">
+                        <div class="card-glow"></div>
+                        <div class="service-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="service-svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="9" y1="9" x2="15" y2="9"></line>
+                                <line x1="9" y1="13" x2="15" y2="13"></line>
+                                <line x1="9" y1="17" x2="15" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Transporte Industrial</h3>
+                        <p class="service-desc">Servicios dedicados exclusivamente para el sector corporativo e industrial, cumpliendo con los más altos estándares de calidad.</p>
+                        <span class="card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Brand Image -->
+            <div class="glass-panel reveal" style="margin-bottom: 50px; padding: 0; height: 350px; overflow: hidden;">
+                <img src="images/insta_truck.jpg" alt="Flota Transporte Andina" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+
+            <!-- Glass Coverage Area Map panel (Now outside the services panel) -->
+            <div class="glass-panel reveal">
+                <div class="graphic-chevrons solid top-left"></div>
+                <span class="section-tag">COBERTURA NACIONAL</span>
+                <h2 class="section-title">Nuestra zona de enlace</h2>
+                <p class="nosotros-p" style="margin-bottom: 45px;">Conectamos de forma directa la Región de Cuyo con la Provincia de Buenos Aires, garantizando tránsitos rápidos y seguros entre nuestros depósitos clave.</p>
+                <div class="map-layout">
+                    <!-- Leaflet OSM Map container -->
+                    <div id="map" class="map-container tracking-3d"></div>
+                    <div class="map-info">
+                        <div class="info-card">
+                            <i class="fa-solid fa-warehouse"></i>
+                            <h4>Depósito Central San Luis</h4>
+                            <p>Av. Santos Ortiz y Sto. Cabral 320 Sur</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-solid fa-warehouse"></i>
+                            <h4>Depósito Buenos Aires</h4>
+                            <p>Ferré 2520, Villa Soldati, CABA</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-solid fa-warehouse"></i>
+                            <h4>Depósito Villa Mercedes</h4>
+                            <p>Av. 25 de Mayo 2470</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Quick Bar -->
+    <div class="floating-quick-bar">
+        <div class="quick-bar-container">
+            <div class="quick-bar-info">
+                <span class="pulse-icon"></span>
+                <p><strong>Tránsito Activo:</strong> Buenos Aires ↔ San Luis / Villa Mercedes</p>
+            </div>
+            <div class="quick-bar-actions">
+                <a href="tel:+5492664208013" class="btn-quick-contact"><i class="fa-solid fa-phone"></i> +54 9 266 4208013</a>
+                <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20necesito%20cotizar%20un%20flete" target="_blank" class="btn btn-primary btn-sm">Cotizar <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Levitating Animated WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="whatsapp-float-btn" title="Chateá con nosotros">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Necesitás cotizar?</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-col-about">
+                    <img src="images/logo.svg" alt="Transporte Andina" class="footer-logo">
+                    <p class="footer-desc">Soluciones logísticas integrales y dedicadas para empresas que buscan seguridad, confianza y eficiencia estructural en cada envío.</p>
+                </div>
+                <div class="footer-col-contact">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> +54 9 266 4208013</li>
+                        <li><i class="fa-solid fa-envelope"></i> hcsanluissrl@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col-contact">
+                    <h3>Depósitos</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>San Luis:</strong> Av. Santos Ortiz y Sto. Cabral 320 Sur</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>Buenos Aires:</strong> Ferré 2520, Villa Soldati, CABA</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>Villa Mercedes:</strong> Av. 25 de Mayo 2470</li>
+                    </ul>
+                </div>
+                <div class="footer-col-social">
+                    <h3>Seguinos</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=100046300991105" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span class="brand-highlight">Transporte Andina</span>. Todos los derechos reservados. — Una empresa dedicada a su servicio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

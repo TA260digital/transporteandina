@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Administración Interno — Transporte Andina</title>
+    <link rel="stylesheet" href="portalstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Access Login Page Overlay (simulated client login landing) -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-card tracking-3d">
+            <div class="login-logo-container">
+                <img src="images/logo.svg" alt="Transporte Andina">
+            </div>
+            <h2>Portal de Administración</h2>
+            <p>Acceso restringido para personal autorizado</p>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fa-solid fa-user"></i> Usuario o Legajo</label>
+                    <input type="text" id="username" placeholder="Ingresá tu usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">Ingresar al Sistema <i
+                        class="fa-solid fa-right-to-bracket"></i></button>
+            </form>
+            <div class="login-footer">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver a la web pública</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Admin Workspace Layout -->
+    <div class="admin-wrapper">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.svg" alt="Transporte Andina" class="sidebar-logo">
+                <span class="badge-system">ADMIN</span>
+            </div>
+
+            <div class="user-panel">
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="user-info">
+                    <h4>Operador Andina</h4>
+                    <p>Mesa de Control</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#viajes" class="menu-item active" data-tab="viajes"><i class="fa-solid fa-truck-fast"></i>
+                    Monitoreo de Viajes</a>
+                <a href="#hojas" class="menu-item" data-tab="hojas"><i class="fa-solid fa-file-invoice"></i> Hojas de
+                    Ruta</a>
+                <a href="#seguimiento" class="menu-item" data-tab="seguimiento"><i
+                        class="fa-solid fa-map-location-dot"></i> Control de Entregas</a>
+                <a href="#unidades" class="menu-item" data-tab="unidades"><i class="fa-solid fa-clipboard-list"></i>
+                    Control Documental</a>
+                <a href="#tarifario" class="menu-item" data-tab="tarifario"><i
+                        class="fa-solid fa-circle-dollar-to-slot"></i> Tarifario General</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn-logout"><i class="fa-solid fa-power-off"></i> Cerrar Sesión</button>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-body">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1 id="activeTabTitle">Monitoreo y Ruteo de Viajes</h1>
+                    <p id="activeTabDesc">Gestión y despacho de flota activa en tiempo real.</p>
+                </div>
+                <div class="header-actions">
+                    <span class="system-time"><i class="fa-regular fa-clock"></i> <span
+                            id="clock">14:32:00</span></span>
+                    <button class="btn-action-primary" id="btnAddNew"><i class="fa-solid fa-plus"></i> Registrar
+                        Viaje</button>
+                </div>
+            </header>
+
+            <!-- TAB 1: Ruteo y Monitoreo de Viajes -->
+            <section id="tab-viajes" class="tab-content active">
+                <div class="stats-row">
+                    <div class="stat-box card-style">
+                        <div class="stat-icon bg-blue"><i class="fa-solid fa-truck-moving"></i></div>
+                        <div class="stat-info">
+                            <h3>14</h3>
+                            <p>Unidades en viaje</p>
+                        </div>
+                    </div>
+                    <div class="stat-box card-style">
+                        <div class="stat-icon bg-gold"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>En espera de carga</p>
+                        </div>
+                    </div>
+                    <div class="stat-box card-style">
+                        <div class="stat-icon bg-green"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="stat-info">
+                            <h3>28</h3>
+                            <p>Entregados hoy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card card-style">
+                    <div class="card-header">
+                        <h2>Flota en Tránsito</h2>
+                        <div class="filter-bar">
+                            <input type="text" placeholder="Buscar por Patente, Chofer o Destino..."
+                                class="search-input">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Viaje</th>
+                                    <th>Unidad / Patente</th>
+                                    <th>Chofer</th>
+                                    <th>Origen</th>
+                                    <th>Destino</th>
+                                    <th>Tipo de Carga</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#VJ-9042</td>
+                                    <td>Iveco Stralis <span class="badge-plate">[AD-903-KJ]</span></td>
+                                    <td>Gómez, Carlos</td>
+                                    <td>Depósito Bs.As. (Soldati)</td>
+                                    <td>Sede San Luis (Capital)</td>
+                                    <td>Bobinas de Acero</td>
+                                    <td><span class="status-pill status-moving">En viaje</span></td>
+                                    <td>
+                                        <button class="btn-tbl btn-tbl-view"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="btn-tbl btn-tbl-edit"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#VJ-9043</td>
+                                    <td>Mercedes Axor <span class="badge-plate">[AF-112-OP]</span></td>
+                                    <td>Fernández, Hugo</td>
+                                    <td>Sede San Luis (Capital)</td>
+                                    <td>Depósito Mercedes</td>
+                                    <td>Pallets Químicos</td>
+                                    <td><span class="status-pill status-waiting">Esperando carga</span></td>
+                                    <td>
+                                        <button class="btn-tbl btn-tbl-view"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="btn-tbl btn-tbl-edit"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#VJ-9044</td>
+                                    <td>Scania R410 <span class="badge-plate">[AE-889-LM]</span></td>
+                                    <td>Rodriguez, Jorge</td>
+                                    <td>Depósito Mercedes</td>
+                                    <td>Depósito Bs.As. (Soldati)</td>
+                                    <td>Mercadería General</td>
+                                    <td><span class="status-pill status-done">Completado</span></td>
+                                    <td>
+                                        <button class="btn-tbl btn-tbl-view"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="btn-tbl btn-tbl-edit"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: Hojas de Ruta -->
+            <section id="tab-hojas" class="tab-content">
+                <div class="data-card card-style">
+                    <div class="card-header">
+                        <h2>Hojas de Ruta Generadas</h2>
+                        <button class="btn-action-primary btn-sm" id="btnNewHR"><i
+                                class="fa-solid fa-file-circle-plus"></i> Generar Hoja</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>N° Hoja</th>
+                                    <th>Fecha</th>
+                                    <th>Unidad</th>
+                                    <th>Ruta Comercial</th>
+                                    <th>Kilómetros</th>
+                                    <th>Combustible Asignado</th>
+                                    <th>Estado de Firma</th>
+                                    <th>Descargar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HR-2026-1128</td>
+                                    <td>24/08/2026</td>
+                                    <td>Mercedes Axor <span class="badge-plate">[AF-112-OP]</span></td>
+                                    <td>Buenos Aires - San Luis</td>
+                                    <td>790 km</td>
+                                    <td>320 Lts</td>
+                                    <td><span class="status-pill status-done">Firmado Digital</span></td>
+                                    <td><button class="btn-tbl btn-tbl-download"><i class="fa-solid fa-file-pdf"></i>
+                                            PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td>HR-2026-1129</td>
+                                    <td>24/08/2026</td>
+                                    <td>Iveco Stralis <span class="badge-plate">[AD-903-KJ]</span></td>
+                                    <td>San Luis - Villa Mercedes</td>
+                                    <td>100 km</td>
+                                    <td>45 Lts</td>
+                                    <td><span class="status-pill status-waiting">Pendiente Chofer</span></td>
+                                    <td><button class="btn-tbl btn-tbl-download"><i class="fa-solid fa-file-pdf"></i>
+                                            PDF</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: Control de Entregas -->
+            <section id="tab-seguimiento" class="tab-content">
+                <div class="delivery-dashboard">
+                    <!-- Tracking visual list -->
+                    <div class="data-card card-style">
+                        <div class="card-header">
+                            <h2>Seguimiento de Remitos y Entregas</h2>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-badge bg-green"><i class="fa-solid fa-check"></i></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Remito #RM-8893 - Entregado</h4>
+                                        <p><small class="text-muted"><i class="fa-solid fa-clock"></i> Hace 12 minutos -
+                                                Cliente: Arcor San Luis</small></p>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Descarga completada en planta Parque Industrial. Conformado y firmado por
+                                            seguridad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-badge bg-blue"><i class="fa-solid fa-truck"></i></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Remito #RM-8894 - En Ruta</h4>
+                                        <p><small class="text-muted"><i class="fa-solid fa-clock"></i> En camino -
+                                                Cliente: Cervecería Quilmes (Soldati)</small></p>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Unidad en autopista RN 7 km 420. Estimado llegada: 18:30hs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: Control Documental -->
+            <section id="tab-unidades" class="tab-content">
+                <div class="data-card card-style">
+                    <div class="card-header">
+                        <h2>Vencimientos y Habilitaciones de Flota</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Unidad</th>
+                                    <th>Chofer Asignado</th>
+                                    <th>Vto. RUTA</th>
+                                    <th>Vto. VTV</th>
+                                    <th>Seguro Obligatorio</th>
+                                    <th>Licencia LNH (Moyano)</th>
+                                    <th>Estado Alerta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Scania R410 <span class="badge-plate">[AE-889-LM]</span></td>
+                                    <td>Rodriguez, Jorge</td>
+                                    <td>12/12/2026</td>
+                                    <td>08/11/2026</td>
+                                    <td class="text-success"><i class="fa-solid fa-circle-check"></i> Al día</td>
+                                    <td>Vence 10/10/2026</td>
+                                    <td><span class="status-pill status-done">Habilitado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Iveco Stralis <span class="badge-plate">[AD-903-KJ]</span></td>
+                                    <td>Gómez, Carlos</td>
+                                    <td>15/09/2026</td>
+                                    <td class="text-danger">Venció 15/08/2026</td>
+                                    <td class="text-success"><i class="fa-solid fa-circle-check"></i> Al día</td>
+                                    <td>Vence 12/09/2026</td>
+                                    <td><span class="status-pill status-danger">Bloqueado VTV</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: Tarifario General -->
+            <section id="tab-tarifario" class="tab-content">
+                <div class="data-card card-style">
+                    <div class="card-header">
+                        <h2>Tarifario</h2>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn-action-primary btn-sm" id="btnUpdateRates"><i
+                                    class="fa-solid fa-pen-to-square"></i> Actualizar Tarifas</button>
+                            <button class="btn-action-primary btn-sm" id="btnCreateRate"
+                                style="background-color: var(--primary); color: var(--white); box-shadow: 0 4px 15px rgba(0, 95, 204, 0.2);"><i
+                                    class="fa-solid fa-plus"></i> Crear Tarifa</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Ruta Origen-Destino</th>
+                                    <th>Tarifa Carga Completa (FTL)</th>
+                                    <th>Tarifa Medio Flete (LTL)</th>
+                                    <th>Adicional por Refrigerado</th>
+                                    <th>Costo de Peajes Estimado</th>
+                                    <th>Última Actualización</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Buenos Aires ↔ San Luis</td>
+                                    <td>$850.000 ARS</td>
+                                    <td>$480.000 ARS</td>
+                                    <td>+$150.000 ARS</td>
+                                    <td>$12.500 ARS</td>
+                                    <td>15/08/2026</td>
+                                </tr>
+                                <tr>
+                                    <td>San Luis ↔ Villa Mercedes</td>
+                                    <td>$120.000 ARS</td>
+                                    <td>$75.000 ARS</td>
+                                    <td>+$30.000 ARS</td>
+                                    <td>$1.800 ARS</td>
+                                    <td>15/08/2026</td>
+                                </tr>
+                                <tr>
+                                    <td>Buenos Aires ↔ Villa Mercedes</td>
+                                    <td>$790.000 ARS</td>
+                                    <td>$440.000 ARS</td>
+                                    <td>+$130.000 ARS</td>
+                                    <td>$11.200 ARS</td>
+                                    <td>15/08/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal Form (Create / Edit) -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content card-style">
+            <div class="modal-header">
+                <h2 id="modalTitle">Registrar Nuevo Viaje</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="newTripForm">
+                <div class="form-group">
+                    <label for="tripUnit">Unidad / Patente</label>
+                    <input type="text" id="tripUnit" placeholder="Ej: Scania [AE-123-ZZ]" required>
+                </div>
+                <div class="form-group">
+                    <label for="tripDriver">Chofer Asignado</label>
+                    <input type="text" id="tripDriver" placeholder="Ej: Gómez, Raúl" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tripOrigin">Origen</label>
+                        <input type="text" id="tripOrigin" placeholder="Ej: Depósito Soldati" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tripDest">Destino</label>
+                        <input type="text" id="tripDest" placeholder="Ej: Sede San Luis" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tripLoad">Tipo de Carga</label>
+                    <input type="text" id="tripLoad" placeholder="Ej: Pallets Alimenticios" required>
+                </div>
+                <button type="submit" class="btn-submit-modal">Despachar Unidad <i
+                        class="fa-solid fa-truck-ramp-box"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Actualizar Tarifas -->
+    <div id="ratesModal" class="modal">
+        <div class="modal-content card-style" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>Actualizar Tarifas</h2>
+                <span class="close-modal-rates">&times;</span>
+            </div>
+            <form id="ratesForm">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="rateRouteSelect">Seleccionar Ruta</label>
+                    <select id="rateRouteSelect"
+                        style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                        <option value="all">Todas las rutas</option>
+                        <option value="Buenos Aires ↔ San Luis">Buenos Aires ↔ San Luis</option>
+                        <option value="San Luis ↔ Villa Mercedes">San Luis ↔ Villa Mercedes</option>
+                        <option value="Buenos Aires ↔ Villa Mercedes">Buenos Aires ↔ Villa Mercedes</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="rateFieldSelect">Tarifa a Modificar</label>
+                    <select id="rateFieldSelect"
+                        style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                        <option value="all">Todas las tarifas de la ruta</option>
+                        <option value="ftl">Carga Completa (FTL)</option>
+                        <option value="ltl">Medio Flete (LTL)</option>
+                        <option value="refrig">Adicional por Refrigerado</option>
+                        <option value="peaje">Peajes</option>
+                    </select>
+                </div>
+                <div class="form-row"
+                    style="margin-bottom: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label for="rateMethodSelect">Método de Ajuste</label>
+                        <select id="rateMethodSelect"
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                            <option value="percent">Porcentaje (%)</option>
+                            <option value="flat">Valor Fijo ($)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rateAdjustmentValue">Valor de Ajuste (+/-)</label>
+                        <input type="number" id="rateAdjustmentValue" placeholder="Ej: 10 o 50000" required
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-modal" style="width: 100%; margin-top: 10px;">Aplicar Ajuste <i
+                        class="fa-solid fa-circle-check"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Crear Nueva Tarifa -->
+    <div id="createRateModal" class="modal">
+        <div class="modal-content card-style" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>Crear Nueva Tarifa</h2>
+                <span class="close-modal-create-rate">&times;</span>
+            </div>
+            <form id="createRateForm">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="newRateRoute">Ruta Origen ↔ Destino</label>
+                    <input type="text" id="newRateRoute" placeholder="Ej: Buenos Aires ↔ Mendoza" required
+                        style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                </div>
+                <div class="form-row"
+                    style="margin-bottom: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label for="newRateFtl">Carga Completa (FTL)</label>
+                        <input type="number" id="newRateFtl" placeholder="Ej: 950000" required
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="newRateLtl">Medio Flete (LTL)</label>
+                        <input type="number" id="newRateLtl" placeholder="Ej: 550000" required
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                    </div>
+                </div>
+                <div class="form-row"
+                    style="margin-bottom: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label for="newRateRefrig">Adicional Refrigerado</label>
+                        <input type="number" id="newRateRefrig" placeholder="Ej: 180000" required
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="newRatePeaje">Costo Peajes</label>
+                        <input type="number" id="newRatePeaje" placeholder="Ej: 12000" required
+                            style="width: 100%; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(26, 45, 100, 0.1); background-color: var(--bg-light); outline: none; font-size: 14px;">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-modal" style="width: 100%; margin-top: 10px;">Crear Tarifa <i
+                        class="fa-solid fa-plus"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="portalscript.js"></script>
+</body>
+
+</html>

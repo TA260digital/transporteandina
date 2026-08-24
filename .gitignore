@@ -1,0 +1,8 @@
+# Ignore local IDE configs, app data folders, generated temp files
+.gemini/
+.agents/
+scratch_*/
+tmp_bytes.txt
+registro_conversacion.jsonl
+*.zip
+*.log

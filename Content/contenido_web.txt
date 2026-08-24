@@ -1,0 +1,90 @@
+Contenido de Sitio Web - Transporte Andina
+1. Navegación Principal (Header)
+Menú de Navegación:
+• Inicio
+• Soluciones
+• Pilares
+• Nosotros
+• Contacto
+Logotipo del Sitio (Imagen):
+Ruta: https://transporteandina.com/wp-content/uploads/2026/02/transporte-andina-logo.svg
+2. Sección: Inicio (Hero)
+Título Superior (Categoría):
+Transporte Andina
+Título Principal (H1 / Promesa):
+Una empresa dedicada a su servicio
+Subtítulo / Bajada:
+Envíos Buenos Aires - San Luis - Villa Mercedes
+Botones de Acción (Llamados a la Acción):
+• Botón 1: 'Cotizá tu envio' (Enlace a WhatsApp: https://api.whatsapp.com/send/?phone=5492664208013&text&type=phone_number&app_absent=0)
+• Botón 2: 'Contáctanos' (Desplazamiento a formulario de contacto)
+Imagen Destacada (Hero):
+Ruta: https://transporteandina.com/wp-content/uploads/2026/02/transporte-andina-5.jpg
+3. Sección: Soluciones (Servicios)
+Título de Sección:
+Nuestros servicios / Soluciones logísticas
+Servicio 1: Transporte de Carga General
+Descripción:
+Cobertura completa para el traslado seguro de mercaderías generales con unidades equipadas para cada requerimiento.
+Icono asignado: https://transporteandina.com/wp-content/uploads/2026/02/envios.svg
+Servicio 2: Logística y Coordinación de Envíos
+Descripción:
+Gestión integral de la cadena de suministro, optimizando tiempos de tránsito y garantizando rutas de entrega eficientes.
+Icono asignado: https://transporteandina.com/wp-content/uploads/2026/02/logistica-icon.svg
+Servicio 3: Transporte para Empresas e Industrias
+Descripción:
+Servicios dedicados exclusivamente para el sector corporativo e industrial, cumpliendo con los más altos estándares de calidad.
+Icono asignado: https://transporteandina.com/wp-content/uploads/2026/02/industria-icon.svg
+4. Sección: Pilares (Diferenciales)
+Título de Sección:
+Nuestros pilares / Porque elegir a Transporte Andina
+Pilar 01: Atención Personalizada
+Descripción:
+Asignamos un ejecutivo de cuenta dedicado para cada cliente corporativo, asegurando una comunicación directa y resolutiva.
+Pilar 02: Seguimiento en Tiempo Real
+Descripción:
+Implementamos tecnología de rastreo satelital en todas nuestras unidades para brindar control total sobre la carga en tránsito.
+Pilar 03: Experiencia y Confianza
+Descripción:
+Contamos con años de trayectoria recorriendo las rutas argentinas, respaldando cada envío con la máxima seguridad del mercado.
+5. Sección: Nosotros (Quiénes Somos)
+Título de Sección:
+Quienes somos / El respaldo logístico que tu empresa necesita
+Texto Principal:
+En Transporte Andina llevamos más de 13 años acompañando a empresas e industrias en el traslado seguro de mercaderías entre San Luis, Villa Mercedes, Buenos Aires y distintos puntos del país.
+Nacimos con un objetivo claro: ofrecer un servicio de transporte confiable, con atención personalizada y seguimiento constante de cada carga.
+A lo largo de los años hemos construido relaciones de largo plazo con nuestros clientes gracias a nuestro compromiso, puntualidad y responsabilidad en cada viaje.
+Nuestra moderna flota y nuestro equipo humano altamente capacitado nos permiten ofrecer soluciones flexibles, adaptándonos estructuralmente a los requerimientos específicos de cada cliente y garantizando que tu carga llegue siempre a destino en tiempo y forma.
+Datos Destacados en la Sección:
+• Sedes: San Luis - Villa Mercedes - Buenos Aires
+• Rutas Clave: Buenos Aires - San Luis
+• Años de experiencia: 13 años recorriendo el país
+Imagen Nosotros:
+Ruta: https://transporteandina.com/wp-content/uploads/2026/03/transporte-andina-2.jpg
+6. Sección: Contacto (Formulario y Sedes)
+Título de Sección:
+Contacto / Hablemos de tu carga
+Texto descriptivo:
+¿Tenés consultas sobre nuestros servicios o rutas? Dejanos tu mensaje y un asesor especializado se contactará a la brevedad para brindarte la mejor solución logística para tu empresa.
+Campos del Formulario (Solicitar Cotización):
+1. Nombre / Empresa (Texto, obligatorio, placeholder: 'Ej: Juan Pérez')
+2. Correo electrónico (Email, obligatorio, placeholder: 'juan@empresa.com')
+3. Detalle de carga (Área de texto, opcional, placeholder: 'Describí tu consulta')
+4. Botón de envío: 'Solicitar cotización'
+7. Footer (Pie de Página)
+Eslogan:
+Una empresa dedicada a su servicio
+Descripción del Footer:
+Soluciones logísticas integrales y dedicadas para empresas que buscan seguridad, confianza y eficiencia estructural en cada envío.
+Datos de Contacto:
+• Teléfono: +54 9 266 4208013
+• Correo electrónico: hcsanluissrl@gmail.com
+Ubicación de Depósitos:
+• San Luis: Av. Santos Ortiz y Sto. Cabral 320 Sur
+• Buenos Aires: Ferré 2520, Villa Soldati, CABA
+• Villa Mercedes: Av. 25 de Mayo 2470
+Redes Sociales:
+• Instagram: @transporteandina_sanluis (https://www.instagram.com/transporteandina_sanluis/)
+• Facebook: Transporte Andina (https://www.facebook.com/profile.php?id=100046300991105)
+Derechos reservados:
+Todos los derechos reservados. Transporte Andina - Una empresa dedicada a su servicio.

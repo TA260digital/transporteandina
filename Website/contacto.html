@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Cobertura — Transporte Andina</title>
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    
+
+    <!-- Master Parallax Background Video Progression -->
+    <div id="globalVideoContainer">
+        <video id="globalVideo" playsinline muted loop autoplay src="https://assets.mixkit.co/videos/preview/mixkit-cargo-truck-driving-on-the-highway-40436-large.mp4" class="global-video"></video>
+        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 1; z-index: -1;"></canvas>
+        <div id="globalVideoOverlay"></div>
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.svg" alt="Transporte Andina" class="logo">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="soluciones.html" class="nav-item">Soluciones</a>
+                <a href="pilares.html" class="nav-item">Pilares</a>
+                <a href="nosotros.html" class="nav-item">Nosotros</a>
+                <a href="contacto.html" class="nav-item active">Contacto</a>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contacto & Cobertura Layout -->
+    <main class="home-page">
+        <div class="container">
+            <!-- Glass Contact card panel -->
+            <div class="glass-panel reveal" style="margin-bottom: 50px;">
+                <div class="graphic-chevrons solid top-left"></div>
+                <span class="section-tag">COTIZACIONES</span>
+                <h2 class="section-title" style="margin-bottom: 30px;">Hablemos de tu carga</h2>
+
+                <div class="contacto-layout">
+                    <div class="contacto-text-col">
+                        <p class="contacto-desc">¿Tenés consultas sobre nuestros servicios o rutas? Dejanos tu mensaje y un asesor especializado se contactará a la brevedad para brindarte la mejor solución logística para tu empresa.</p>
+                        
+                        <div class="quick-contact-icons" style="margin-bottom: 30px;">
+                            <a href="tel:+5492664208013" class="contact-pill">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+54 9 266 4208013</span>
+                            </a>
+                            <a href="mailto:hcsanluissrl@gmail.com" class="contact-pill">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>hcsanluissrl@gmail.com</span>
+                            </a>
+                        </div>
+
+                        <div class="asymmetric-image-container" style="max-width: 100%; height: 220px; border-radius: 120px 10px 10px 10px; margin-top: 20px;">
+                            <img src="images/insta_contact.jpg" alt="Ruta Transporte Andina" class="asymmetric-img" style="height: 100%; width: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+
+                    <div class="contacto-form-col">
+                        <form class="cotizacion-form tracking-3d">
+                            <div class="form-group">
+                                <label for="name">Nombre / Empresa *</label>
+                                <input type="text" id="name" placeholder="Ej: Juan Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico *</label>
+                                <input type="email" id="email" placeholder="juan@empresa.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Detalle de la carga / Consulta</label>
+                                <textarea id="message" rows="4" placeholder="Describí tu consulta o volumen de carga"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Solicitar cotización <i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Floating Quick Bar -->
+    <div class="floating-quick-bar">
+        <div class="quick-bar-container">
+            <div class="quick-bar-info">
+                <span class="pulse-icon"></span>
+                <p><strong>Tránsito Activo:</strong> Buenos Aires ↔ San Luis / Villa Mercedes</p>
+            </div>
+            <div class="quick-bar-actions">
+                <a href="tel:+5492664208013" class="btn-quick-contact"><i class="fa-solid fa-phone"></i> +54 9 266 4208013</a>
+                <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20necesito%20cotizar%20un%20flete" target="_blank" class="btn btn-primary btn-sm">Cotizar <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Levitating Animated WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="whatsapp-float-btn" title="Chateá con nosotros">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Necesitás cotizar?</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-col-about">
+                    <img src="images/logo.svg" alt="Transporte Andina" class="footer-logo">
+                    <p class="footer-desc">Soluciones logísticas integrales y dedicadas para empresas que buscan seguridad, confianza y eficiencia estructural en cada envío.</p>
+                </div>
+                <div class="footer-col-contact">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> +54 9 266 4208013</li>
+                        <li><i class="fa-solid fa-envelope"></i> hcsanluissrl@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col-contact">
+                    <h3>Depósitos</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>San Luis:</strong> Av. Santos Ortiz y Sto. Cabral 320 Sur</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>Buenos Aires:</strong> Ferré 2520, Villa Soldati, CABA</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <strong>Villa Mercedes:</strong> Av. 25 de Mayo 2470</li>
+                    </ul>
+                </div>
+                <div class="footer-col-social">
+                    <h3>Seguinos</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/transporteandina_sanluis/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=100046300991105" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Transporte Andina. Todos los derechos reservados. — Una empresa dedicada a su servicio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS Map script dependencies -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
