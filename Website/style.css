@@ -1087,7 +1087,7 @@ h2.section-title.text-white {
 
 .footer-layout {
     display: grid;
-    grid-template-columns: 1fr 0.8fr 1.6fr 0.8fr;
+    grid-template-columns: 1fr 0.7fr 1.8fr 0.5fr;
     gap: 30px;
     margin-bottom: 20px;
 }
@@ -1128,6 +1128,7 @@ h2.section-title.text-white {
     display: flex;
     align-items: flex-start;
     gap: 12px;
+    white-space: nowrap;
 }
 
 .footer-col-contact i {
@@ -1139,21 +1140,24 @@ h2.section-title.text-white {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: flex-start;
 }
 
 .social-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--white);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 8px 14px;
     border-radius: var(--border-radius-sm);
     font-family: 'BuiltTitling', sans-serif;
     font-size: 13px;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    width: fit-content;
+    white-space: nowrap;
 }
 
 .social-btn:hover {

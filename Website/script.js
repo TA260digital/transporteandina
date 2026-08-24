@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("floatingParticlesCanvas");
     if (globalVideo || canvas) {
         const isHomepage = window.location.pathname.endsWith("index.html") || 
+                           window.location.pathname.endsWith("animada.html") || 
                            window.location.pathname === "/" || 
                            window.location.pathname.endsWith("/") ||
                            window.location.pathname === "";
