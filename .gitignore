@@ -6,3 +6,10 @@ tmp_bytes.txt
 registro_conversacion.jsonl
 *.zip
 *.log
+
+# Ignore raw design assets and manual folders
+Content/
+manual_de_marca.pdf
+fonts/
+/manual_de_marca.pdf
+
