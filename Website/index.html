@@ -47,8 +47,7 @@
 
     <!-- Master Parallax Background Video Progression -->
     <div id="globalVideoContainer">
-        <video id="globalVideo" class="global-video" src="images/video_background.mp4" autoplay muted playsinline preload="auto"></video>
-        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 2s ease; z-index: -1;"></canvas>
+        <canvas id="floatingParticlesCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 1; z-index: -1;"></canvas>
         <div id="globalVideoOverlay"></div>
     </div>
 
@@ -83,6 +82,15 @@
                 <div class="hero-actions">
                     <a href="https://api.whatsapp.com/send/?phone=5492664208013&text=Hola%20Transporte%20Andina,%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="btn btn-primary">Cotizá tu envío <i class="fa-brands fa-whatsapp"></i></a>
                     <a href="contacto.html" class="btn btn-outline">Contáctanos <i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <!-- Tracking Form -->
+                <div class="hero-tracking-container">
+                    <h3 class="hero-tracking-title">Consulta el estado de tu envío</h3>
+                    <form class="hero-tracking-form" id="heroTrackingForm">
+                        <input type="text" placeholder="Ingresá tu código de seguimiento..." class="hero-tracking-input" id="heroTrackingInput" required>
+                        <button type="submit" class="hero-tracking-btn">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
